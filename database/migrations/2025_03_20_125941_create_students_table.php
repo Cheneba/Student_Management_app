@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("address");
             $table->string("mobile");
             $table->integer("age")->nullable();
-            $table->string("parent-contact")->nullable();
+            $table->string("parent_contact")->nullable();
             $table->timestamps();
         });
     }
