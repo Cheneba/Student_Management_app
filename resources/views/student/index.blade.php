@@ -33,7 +33,7 @@
               <a href="{{ url('/students/' . $item->id) }}" title="View Student"><button class="btn btn-primary">View</button></a>
               <a href="{{ url('/students/' . $item->id . '/edit') }}" title="Edit Student"><button class="btn btn-success">Edit</button></a>
               
-              <form method="POST" action="{{ url('/students/remove/' . $item->id) }}">
+              <form method="POST" action="{{ url('/students/' . $item->id) }}">
                 {{ method_field('DELETE')}}
                 @csrf
                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Student">Delete</button>

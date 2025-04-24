@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header">Contact Us Page</div>
     <div class="card-body">
-        <form action="{{ url('students/' . $student->id . '/edit') }}" method="POST">
+        <form action="{{ url('students/' . $student->id) }}" method="POST">
             @csrf
             @method("PATCH")
             <input type="hidden" name="id" value="{{$student->id}}">
