@@ -73,9 +73,10 @@
 </head>
 
 <body>
-  <div class="row">
-    <div class="col-12 col-md-12">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-12 col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
           <h1>Student Management</h1>
         </a>
@@ -83,26 +84,22 @@
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-      </nav>
-    </div>
-    <div class="col-12">
-      <div class="row">
-        <div class="col-3">
-
-          <div class="sidebar">
-            <a class="active" href="#home">Home</a>
-            <a href="#Student">Student</a>
-            <a href="#Teacher">Teacher</a>
-            <a href="#Courses">Courses</a>
-            <a href="#Enrollment">Enrollment</a>
-            <a href="#Payment">Payment</a>
+        </nav>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-3" style="width: 25vw">
+            <div class="sidebar">
+              <a class="active" href="#home">Home</a>
+              <a href="#Student">Student</a>
+              <a href="#Teacher">Teacher</a>
+              <a href="#Courses">Courses</a>
+              <a href="#Enrollment">Enrollment</a>
+              <a href="#Payment">Payment</a>
+            </div>
           </div>
-        </div>
-        <div class="col-9">
-
-          <div class="content">
-            @yield("content")
+          <div class="col-9">
+              @yield("content")
           </div>
         </div>
       </div>
