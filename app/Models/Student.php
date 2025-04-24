@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
@@ -11,5 +12,7 @@ class Student extends Model
 
     protected $primaryKey = "id";
 
-    protected $fillable = ['name', 'address', 'modile'];
+    protected $fillable = ['name', 'address', 'mobile', 'age', 'parent-contact'];
+
+    use HasFactory;
 }
