@@ -73,7 +73,7 @@
 </head>
 
 <body>
-  <div class="container-md">
+  <div class="container-sm">
     <div class="row">
       <div class="col-12 col-md-12">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -91,11 +91,11 @@
           <div class="col-3" style="width: 25vw">
             <div class="sidebar">
               <a class="active" href="#home">Home</a>
-              <a href="#Student">Student</a>
-              <a href="#Teacher">Teacher</a>
-              <a href="#Courses">Courses</a>
-              <a href="#Enrollment">Enrollment</a>
-              <a href="#Payment">Payment</a>
+              <a href="{{ url("/students") }}">Student</a>
+              <a href="{{ url("/teacher") }}">Teacher</a>
+              <a href="{{ url("/course") }}">Courses</a>
+              <a href="{{ url("/enrollment") }}">Enrollment</a>
+              <a href="{{ url("/payment") }}">Payment</a>
             </div>
           </div>
           <div class="col-9">

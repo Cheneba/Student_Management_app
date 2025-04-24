@@ -7,6 +7,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use App\Models\Student;
 use Illuminate\View\View;
+use PhpParser\Node\Expr\Cast\Bool_;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class StudentController extends Controller
 {
@@ -15,8 +17,8 @@ class StudentController extends Controller
      */
     public function index(): View
     {
-        $students = Student::all();
-        return view('student.index')->with('students', $students);
+        $students = Student::where("deleted", null)->get();
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -43,7 +45,12 @@ class StudentController extends Controller
     public function show(string $id): View
     {
         $student = Student::findOrfail($id);
-        return view("student.show", compact("$student"));
+
+        if (!$this->isDeleted($student)) {
+            return view("student.show", compact('student'));
+        } else {
+            throw new NotFoundHttpException();
+        }
     }
 
     /**
@@ -51,15 +58,26 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $student = Student::findOrfail($id);
+
+        if (!$this->isDeleted($student)) {
+            return view("student.edit", compact('student'));
+        } else {
+            throw new NotFoundHttpException();
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): RedirectResponse
     {
-        //
+        $data = $request->all();
+
+        $student = Student::findOrfail($id);
+        $student->update($data);
+
+        return redirect("students/$id");
     }
 
     /**
@@ -67,6 +85,19 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $student = Student::findOrfail($id);
+
+        if (!$this->isDeleted($student)) {
+            $student->deleted = true;
+            $student->deleted_at = now();
+            $student->save();
+        }
+
+        return redirect()->back()->with("message", "Deleted Successfully");
+    }
+
+    public function isDeleted($student)
+    {
+        return $student->deleted == 1;
     }
 }

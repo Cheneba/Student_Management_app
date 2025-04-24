@@ -9,8 +9,8 @@ Route::group(['prefix' => "students"], function () {
     Route::get('create', [StudentController::class, 'create']);
     Route::get('{id}', [StudentController::class, 'show']);
     Route::get('{id}/edit', [StudentController::class, 'edit']);
-    Route::post('{id}/edit', [StudentController::class, 'update']);
-    Route::post('remove/{id}', [StudentController::class, 'delete']);
+    Route::patch('{id}/edit', [StudentController::class, 'update']);
+    Route::delete('remove/{id}', [StudentController::class, 'destroy']);
 });
 
 Route::get('/', function () {

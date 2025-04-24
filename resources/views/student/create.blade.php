@@ -15,7 +15,7 @@
             <label for="mobile">Mobile Number</label>
             <input type="tel" name="mobile" id="mobile" class="form-control" required><br>
             <label for="parent-contact">Parent Contact</label>
-            <input type="tel" name="parent-contact" id="parent-contact" class="form-control"><br>
+            <input type="tel" name="parent_contact" id="parent-contact" class="form-control"><br>
             
             <button type="submit">Create</button>
         </form>
