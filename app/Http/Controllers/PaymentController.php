@@ -23,7 +23,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        $enrollments = Enrollment::pluck('enroll_no', 'id');
+        $enrollments = Enrollment::where('deleted', null)->pluck('enroll_no', 'id');
         return view("payments.create", compact('enrollments'));
     }
 
@@ -56,7 +56,7 @@ class PaymentController extends Controller
      */
     public function edit(string $id)
     {
-        $enrollments = Enrollment::pluck('enroll_no', 'id');
+        $enrollments = Enrollment::where('deleted', null)->pluck('enroll_no', 'id');
         $payment = Payment::findOrfail($id);
 
         if (!$this->isDeleted($payment)) {
