@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Batch;
+use App\Models\Course;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class BatchController extends Controller
      */
     public function create(): View
     {
-        return view("batches.create");
+        $courses = Course::where('deleted', null)->pluck('name', 'id');
+        return view("batches.create", compact('courses'));
     }
 
     /**
