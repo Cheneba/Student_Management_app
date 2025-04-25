@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Enrollment extends Model
 {
+    use HasFactory;
+
     protected $table = "enrollments";
 
     protected $primaryKey = "id";
@@ -19,5 +21,14 @@ class Enrollment extends Model
         'fee'
     ];
 
-    use HasFactory;
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
+
+    public function batch()
+    {
+        return $this->belongsTo(Batch::class);
+    }
 }
