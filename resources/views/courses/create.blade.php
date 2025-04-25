@@ -10,8 +10,8 @@
             <input type="text" name="name" id="name" class="form-control" required><br>
             <label for="syllabus">Syllabus</label>
             <input type="text" name="syllabus" id="syllabus" class="form-control" required><br>
-            <label for="duration">Duration</label>
-            <input type="tel" name="duration" id="duration" class="form-control" required><br>
+            <label for="duration">Duration (in Months)</label>
+            <input type="number" name="duration" id="duration" class="form-control" required><br>
             
             <button type="submit">Create</button>
         </form>

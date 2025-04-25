@@ -14,7 +14,7 @@
             <input type="text" name="name" id="name" class="form-control" value="{{ $course->name }}" required><br>
             <label for="syllabus">Syllabus</label>
             <input type="text" name="syllabus" id="syllabus" class="form-control" value="{{ $course->syllabus }}" required><br>
-            <label for="duration">Duration</label>
+            <label for="duration">Duration (in Months)</label>
             <input type="tel" name="duration" id="duration" class="form-control" value="{{ $course->duration }}" required><br>
             
             <button type="submit">Update</button>
