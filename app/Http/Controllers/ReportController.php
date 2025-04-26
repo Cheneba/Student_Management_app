@@ -40,7 +40,8 @@ class ReportController extends Controller
         $print .= "</table>";
         $print .= "<hr />";
 
-        $print .=  "<span> Printed By: <b>" . Auth::user()->name . "</b></span>";
+        // $print .=  "<span> Printed By: <b>" . Auth::user()->name . "</b></span>";
+        $print .=  "<span> Printed By: <b> Platform </b></span>";
         $print .=  "<span> Printed Date: <b>" . date('Y-m-d') . "</b></span>";
 
         $print .=  "</div>";
